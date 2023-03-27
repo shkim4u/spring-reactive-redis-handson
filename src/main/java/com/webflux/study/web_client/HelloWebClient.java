@@ -9,15 +9,14 @@ public class HelloWebClient {
 
     private WebClient client = WebClient.create("http://localhost:8080");
 
-    Mono<Object> result = client.get().uri("/hello/JongMin")
-            .accept(MediaType.TEXT_PLAIN).exchangeToMono(res -> {
-                if (res.statusCode().equals(HttpStatus.OK)) {
-                    return res.bodyToMono(String.class);
-                }else {
-                    return res.createException().flatMap(Mono::error);
-                }
-            });
-
+    Mono<Object> result = client.get().uri("/hello")
+        .accept(MediaType.TEXT_PLAIN).exchangeToMono(res -> {
+            if (res.statusCode().equals(HttpStatus.OK)) {
+                return res.bodyToMono(String.class);
+            } else {
+                return res.createException().flatMap(Mono::error);
+            }
+        });
 
 
     public String getResult() {
