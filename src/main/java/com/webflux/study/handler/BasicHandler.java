@@ -38,6 +38,22 @@ public class BasicHandler {
                 .subscribe();
     }
 
+    /**
+     * Both ReactiveRedisOperations and RedisTemplate are different implementations of the Redis client for use in Java applications.
+     * The main difference between the two is the programming paradigm they follow.
+     *
+     * ReactiveRedisOperations are based on Reactive programming whereas RedisTemplate follows a more traditional imperative programming approach.
+     * Reactive RedisOperations are designed to handle streams of data asynchronously, making them more suitable for large-scale reactive systems.
+     *
+     * They allow you to use reactive APIs, which provide non-blocking and event-driven programming paradigms.
+     * This enables you to build reactive applications that are more efficient and scalable.
+     *
+     * On the other hand, RedisTemplate is designed to work with traditional Java-based applications.
+     * It uses standard Java coding practices like object serialization to simplify your code.
+     * RedisTemplate provides a more intuitive and easier-to-use interface for interacting with Redis.
+     * Thus, you are working with a traditional Java-based application, RedisTemplate might be a better choice. However, if you are working with a reactive system, ReactiveRedisOperations might be more appropriate.
+     * @return
+     */
     public Flux<String> findReactorList() {
         return reactiveRedisOperations
                 .keys("*")
