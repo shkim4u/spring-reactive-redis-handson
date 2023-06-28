@@ -25,6 +25,8 @@ public class BasicRouter {
                         .body(basicHandler.findNormalList(), String.class))
                 .GET("/load", serverRequest -> { basicHandler.loadData(); return ServerResponse.ok()
                         .body(BodyInserters.fromValue("Load Data Completed")); })
+                .GET("/clear", serverRequest -> { basicHandler.clearData(); return ServerResponse.ok()
+                        .body(BodyInserters.fromValue("Data Cleared")); })
                 .build();
     }
 }

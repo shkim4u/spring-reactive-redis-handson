@@ -66,4 +66,11 @@ public class BasicHandler {
                 .map(key -> stringStringRedisTemplate.opsForValue().get(key))
                 .collect(Collectors.toList()));
     }
+
+    public void clearData() {
+        factory.getReactiveConnection()
+                .serverCommands()
+                .flushAll()
+                .subscribe();
+    }
 }
