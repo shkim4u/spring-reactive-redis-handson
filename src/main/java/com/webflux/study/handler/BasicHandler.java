@@ -25,7 +25,7 @@ public class BasicHandler {
     private static final AtomicInteger count = new AtomicInteger(0);
 
     public void loadData() {
-        List<String> data = new ArrayList<>();
+            List<String> data = new ArrayList<>();
         IntStream.range(0, 100000).forEach(i -> data.add(UUID.randomUUID().toString()));
 
         Flux<String> stringFlux = Flux.fromIterable(data);
